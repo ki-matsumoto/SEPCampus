@@ -26,7 +26,7 @@ static const int glidSize = 3;
 //└─┴─┴─┴─┴─┴─┴─┴─┘
 static KindType glid[glidSize][glidSize];
 
-static int gamePhase = 0;
+static int gamePhase;
 
 // 関数定義
 static void SelectGlid();
@@ -37,10 +37,12 @@ static bool DrawResult(ResultType rType);
 
 int main()
 {
-	bool exitFlag = false;
+	gamePhase = 0;
 	memset(glid, 0, sizeof(glid));
+
+	bool exitFlag = false;
 	printf_s("マルバツゲームスタートです。\n");
-	do
+	while (exitFlag == false)
 	{
 		DrawBoard();
 		ResultType rType;
@@ -55,7 +57,6 @@ int main()
 			exitFlag = true;
 		}
 	}
-	while (exitFlag == false);
 	printf_s("マルバツゲームを終了します。\n");
 }
 
@@ -184,7 +185,7 @@ static void DrawBoard()
 {
 	for (int y = 0; y < glidSize; y++)
 	{
-		printf_s("+--+--+--+\n");
+		puts("+--+--+--+");
 		for (int x = 0; x < glidSize; x++)
 		{
 			const char* pieceMark;
@@ -204,7 +205,7 @@ static void DrawBoard()
 		}
 		puts("|");
 	}
-	printf_s("+--+--+--+\n");
+	puts("+--+--+--+");
 
 //	printf_s("┌─┬─┬─┐\n");
 //	printf_s("│  │  │  │\n");
@@ -233,14 +234,17 @@ static bool DrawResult(ResultType rType)
 	case ResultType::WinMaru:
 		printf_s("〇が勝ちました。\n");
 		result = true;
+		break;
 
 	case ResultType::WinBatsu:
 		printf_s("×が勝ちました。\n");
 		result = true;
+		break;
 
 	case ResultType::DrawGame:
 		printf_s("引き分けでした。\n");
 		result = true;
+		break;
 	}
 	return result;
 }
