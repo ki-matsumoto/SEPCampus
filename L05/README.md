@@ -33,13 +33,14 @@ rewind(stdin);
 └─┴─┴─┘
 ```
 まあこんな感じに罫線がそろわなく盤面を奇麗に作れませんでした。
+いったん半角の文字で枠を作って回避してしまいました。
 皆さんはどのように回避しました？
 
 
 ## マルバツゲームのサンプルプログラム
 自分が作るのであればこのような感じに作りますというサンプルプログラムを作りました。
+どのように作ればよいか悩んでいた場合は参考にしてみてください。
 
-[MaruBatsuGame/MaruBatsuGame.cpp](MaruBatsuGame/MaruBatsuGame.cpp)
 ```c
 #include <iostream>
 #include <cstdio>
@@ -282,3 +283,7 @@ static bool DrawResult(ResultType rType)
 	return result;
 }
 ```
+[MaruBatsuGame/MaruBatsuGame.cpp](MaruBatsuGame/MaruBatsuGame.cpp)
+
+
+[プロジェクトごとコミットしている](MaruBatsuGame/)ので参考にしてみてください。
