@@ -1,4 +1,4 @@
-# SEP社用の授業内容
+# プログラマ向けの授業内容
 
 1. [PC環境構築](L01/README.md)
 1. [GitHubを使用する](L02/README.md)
