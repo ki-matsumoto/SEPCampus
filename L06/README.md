@@ -102,7 +102,7 @@ echo $result;
 
 サーバーとじゃんけんが出来るUnityクライアントを作ってみよう。
 
-<img width="640" alt="ScreenShot" src="img/ClinetScreenShot.png">
+<img width="640" alt="ScreenShot" src="img/clinetScreenShot.png">
 
 
 ポイント
