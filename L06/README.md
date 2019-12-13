@@ -100,6 +100,12 @@ echo $result;
 
 ## Unityクライアントを作る
 
+サーバーとじゃんけんが出来るUnityクライアントを作ってみよう。
+
+<img width="640" alt="ScreenShot" src="img/ClinetScreenShot.png">
+
+
 ポイント
+* コルーチン
 * UnityWebRequest
 * JsonUtility
