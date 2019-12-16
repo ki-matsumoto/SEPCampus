@@ -131,6 +131,9 @@ http://ec2-18-176-58-134.ap-northeast-1.compute.amazonaws.com/janken.php?you=0
 {"computer":2,"message":"win"}
 ```
 
+ブラウザで呼び出した引数を参考にUnity(Unreal)から呼び出してもらうのが今回の最大の課題です。
+
+
 # Unityクライアントを作る
 
 サーバーとじゃんけんが出来るUnityクライアントを作ってみよう。
