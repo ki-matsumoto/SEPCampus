@@ -141,9 +141,11 @@ http://ec2-18-176-58-134.ap-northeast-1.compute.amazonaws.com/janken.php?you=0
 こちらは自分が作ったチョー簡単なクライアント画面です。
 <img width="640" alt="ScreenShot" src="img/clinetScreenShot.png">
 
-これより楽し気なゲーム画面を作ってみてください。
+これは最低限の呼び出しテストプログラムなので、楽し気なゲーム画面を作ってみてください。
 
-ポイント
+ポイントは以下の項目です。
 * コルーチン
 * UnityWebRequest
 * JsonUtility
+
+検索して作り方を調べて実装してみてください。
