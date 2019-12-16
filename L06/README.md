@@ -1,14 +1,23 @@
 # じゃんけんを作る
 <div style="text-align: right;">
-2019年12月14日<br>
+2019年12月16日<br>
 株式会社アルファオメガ  松本清明
 </div>
+
+# はじめに
+サーバーとクライアントの連携したプログラムの例としてじゃんけんを作ってみましょう。
+サーバーサイドは簡単なプログラムを用意したので、設定方法とプログラムを載せておきます。
+
+
+# サーバーの用意
 
 ## Amazon ユーザーアカウント作成
 AWSのユーザーアカウント登録を済ませておいて下さい。
 
+## Amazon EC2のインスタンスを作成
+具体的な設定方法は機会に書きますが、クラウド上にサーバーを立ち上げます。
 
-## AWSのEC2にSSH接続
+## Amazon EC2にSSH接続
 
 Windows10の場合
 SSHクライアントを利用するのが良いと思います。自分は [RLogin](http://nanno.dip.jp/softlib/man/rlogin/)を利用しています。
@@ -52,9 +61,25 @@ $ sudo systemctl enable php-fpm.service
 $ systemctl status php-fpm.service
 ```
 
+### Elastic IPの割り当て
+通常は起動のたびに毎回IPアドレスが変わってしまいますが、Elastic IPを使用すると静的に決めた
+IPv4 アドレスを使用することが出来ます。
+
+### Elastic IP アドレスを実行中のインスタンスに関連付ける
+設定方法はまた別の機会に書きます。
+
+現状はこのIPアドレスにしました。今後変変わる可能性があります。
+
+|||
+|--:|:--|
+|IPアドレス|18.176.58.134|
+|ドメイン名|ec2-18-176-58-134.ap-northeast-1.compute.amazonaws.com|
+
+
+
 ## 各種ファイルの準備
 
-## index.htmlを用意
+## index.html
 ```html
 <!DOCTYPE html>
 <html lang="ja">
@@ -66,8 +91,9 @@ $ systemctl status php-fpm.service
 こんにちは
 </body>
 ```
+http://ec2-18-176-58-134.ap-northeast-1.compute.amazonaws.com/index.html
 
-### echo.phpを用意
+### index.php
 ```PHP
 <?php
 $ary = array("code"=>0, "message"=>"Hello, world!",);
@@ -76,7 +102,9 @@ $result = json_encode($ary);
 # json文字列を表示する
 echo $result;
 ```
+http://ec2-18-176-58-134.ap-northeast-1.compute.amazonaws.com/index.php
 
+### janken.php
 ```PHP
 <?php
 // 0:グー, 1:チョキ, 2:パー
@@ -92,18 +120,23 @@ $ary = array("computer"=>$computer, "message"=>$mes,);
 $result = json_encode($ary);
 echo $result;
 ```
+http://ec2-18-176-58-134.ap-northeast-1.compute.amazonaws.com/janken.php?you=0
+
+このリンクをブラウザで実行すると以下のjson文字列が表示されたと思います。
 
 出力されたjson
 ```
 {"computer":2,"message":"win"}
 ```
 
-## Unityクライアントを作る
+# Unityクライアントを作る
 
 サーバーとじゃんけんが出来るUnityクライアントを作ってみよう。
 
+こちらは自分が作ったチョー簡単なクライアント画面です。
 <img width="640" alt="ScreenShot" src="img/clinetScreenShot.png">
 
+これより楽し気なゲーム画面を作ってみてください。
 
 ポイント
 * コルーチン
