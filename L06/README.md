@@ -15,7 +15,7 @@
 AWSのユーザーアカウント登録を済ませておいて下さい。
 
 ## Amazon EC2のインスタンスを作成
-具体的な設定方法は機会に書きますが、クラウド上にサーバーを立ち上げます。
+具体的な設定方法は別の機会に書きますが、まずはクラウド上にサーバーを立ち上げます。
 
 ## Amazon EC2にSSH接続
 
@@ -33,7 +33,7 @@ $ sudo yum update -y
 ```
 ## nginxの設定
 
-#＃# nginxをインストール
+### nginxをインストール
 ``` bash
 $ sudo amazon-linux-extras install nginx1.12
 $ nginx -v
@@ -64,6 +64,8 @@ $ systemctl status php-fpm.service
 ### Elastic IPの割り当て
 通常は起動のたびに毎回IPアドレスが変わってしまいますが、Elastic IPを使用すると静的に決めた
 IPv4 アドレスを使用することが出来ます。
+
+設定方法はまた別の機会に書きます。
 
 ### Elastic IP アドレスを実行中のインスタンスに関連付ける
 設定方法はまた別の機会に書きます。
